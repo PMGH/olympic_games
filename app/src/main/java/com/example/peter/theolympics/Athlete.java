@@ -107,24 +107,16 @@ public abstract class Athlete {
     }
 
     public void writeToLog() throws IOException {
-//        PrintWriter writer = new PrintWriter(new FileWriter("/Users/Peter/codeclan_work/week_07/day_1/TheOlympics/app/src/main/java/com/example/peter/theolympics/AthleteLog.txt", true));
-//        for (int session : this.sessions) {
-//            String sessionStr = Integer.toString(session);
-//            writer.println(sessionStr);
-//        }
-//
-//        int session = sessions.get(0);
-//        String sessionStr = "7";
-//        writer.write(sessionStr);
-//        writer.close();
-//    }
 
         PrintWriter pW = null;
 
         try {
             pW = new PrintWriter(new File("/Users/Peter/codeclan_work/week_07/day_1/TheOlympics/app/src/main/java/com/example/peter/theolympics/AthleteLog.txt"));
-            pW.write("Hello");
-            pW.println();
+            for (int session : this.sessions) {
+                String sessionStr = Integer.toString(session);
+                pW.write(sessionStr + ",");
+                pW.println();
+            }
         } catch (IOException e) {
             e.printStackTrace();
         } finally {
@@ -134,9 +126,5 @@ public abstract class Athlete {
         }
     }
 
-
-    public ArrayList<Integer> getSessions() {
-        return sessions;
-    }
 }
 // this

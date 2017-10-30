@@ -20,4 +20,3 @@ public class Runner {
         boxer.writeToLog();
     }
 }
-// this
